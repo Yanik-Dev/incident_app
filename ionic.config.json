@@ -1,0 +1,8 @@
+{
+  "name": "incidentz",
+  "app_id": "ecbba1c9",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

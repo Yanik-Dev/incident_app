@@ -1,0 +1,76 @@
+<ion-header>
+ <ion-toolbar color="dark">
+
+    <ion-title>New Post</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-slides #slides> 
+
+    <ion-slide>
+        <h2>Satisfied with the Photo?</h2>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <button ion-button full small color="danger" (tap)="takePicture()">No</button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button small full (tap)="nextSlide()">Yes</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div >
+          <ion-card>
+              
+            <img src="{{this._image}}"  alt="" style="width: 200px; height: auto; margin: 0 auto" >
+          </ion-card>
+        </div>
+    </ion-slide>
+
+    <ion-slide >
+      <h2>Identify the incident</h2>
+      <ion-list>
+      <ion-item>
+        <ion-label>Type</ion-label>
+          <ion-select [(ngModel)]="_inputs.icon">
+            <ion-option value="crash-icon" selected>Crash</ion-option>
+            <ion-option value="flood-icon">Flood</ion-option>
+            <ion-option value="roadbreak-icon">Road Break Away</ion-option>
+            <ion-option value="landslide-icon">LandSlide</ion-option>
+            <ion-option value="roadblock-icon">Roadblock</ion-option>
+            <ion-option value="oilspill-icon">Oil Spill</ion-option>
+            <ion-option value="forestfire-icon">Forest Fire</ion-option>
+            <ion-option value="police-icon">Police</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <textarea rows="6" style="width: 100%" placeholder="Comment"  [(ngModel)]="_inputs.comment"></textarea>
+        </ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button full small color="danger" (tap)="prevSlide()">Back</button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button small full [disabled]="isUploading" (tap)="post()">{{_postValue}}
+              <div *ngIf="isUploading">
+              <ion-spinner></ion-spinner>
+              </div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+  </ion-slides>
+  
+</ion-content>

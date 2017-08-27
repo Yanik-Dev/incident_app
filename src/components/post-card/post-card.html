@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons start>
+          <button ion-button icon-only (click)="close()">
+            <ion-icon name="close" ></ion-icon>
+          </button>
+        </ion-buttons>
+    
+        <ion-title>Incident</ion-title>
+    
+        <ion-buttons end>
+          <button ion-button icon-only (click)="change()">
+            <ion-icon name="refresh"></ion-icon>
+          </button>
+        </ion-buttons>
+    
+    </ion-toolbar>
+</ion-header>
+<!-- full content card -->
+<ion-content>
+<ion-card *ngIf="type == 'full'">
+  <ion-item>
+    <h2>{{incident?.posted_by.username | uppercase}}</h2>
+  </ion-item>
+  <img src="{{incident.path}}">
+  <ion-card-content>
+    <ion-note>
+        {{incident.date_taken}}
+    </ion-note>
+    <ion-item>
+      
+      <img src="./assets/icon/{{incident.icon}}.png" item-left style="width:48px; height:48px">
+      <p>{{incident.comment}}</p>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+<!-- ./full content card -->
+
+<!-- reduced content card -->
+<ion-card *ngIf="type=='reduced'">
+  <ion-card-content>
+    <ion-item>
+        <img src="./assets/icon/{{incident.icon}}.png" style="width: 48px; height: 48px">
+      <ion-note>
+          {{incident.date_taken}}
+      </ion-note>
+      <p>{{incident.comment}}</p>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+</ion-content>

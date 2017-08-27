@@ -1,0 +1,23 @@
+<ion-header>
+  
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-card style="border-radius: 50%; width:256px; height:256px">
+    
+      <img src="./assets/icon/profile.png" (tap)="updatePicture()">
+      <ion-content>
+      </ion-content>
+    </ion-card>
+    <div style="text-align:center">
+    <h1>{{_user?.username | uppercase}}</h1>
+    <h3>{{_user?.firstname +' '+_user?.lastname}}</h3>
+    </div>
+</ion-content>

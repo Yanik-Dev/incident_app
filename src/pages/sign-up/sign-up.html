@@ -1,0 +1,83 @@
+
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="_signUpForm">
+    <ion-list >
+      <ion-item>
+        <ion-input type="text" formControlName="username" placeholder="Username"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="_signUpForm.controls.username.errors?.required  && (_signUpForm.controls.username.dirty || _formSubmit)">
+        <p class="error">Username is required</p>
+      </ion-item>
+      <ion-item *ngIf="_signUpForm.controls.username.pending">
+        <p>Checking username...</p>
+      </ion-item>
+      <ion-item *ngIf="!_signUpForm.controls.username.valid && !_signUpForm.controls.username.errors?.required && !_signUpForm.controls.username.pending  && (_signUpForm.controls.username.dirty)">
+        <p class="error">Username is taken</p>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="firstname" placeholder="First name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!_signUpForm.controls.firstname.valid  && (_signUpForm.controls.firstname.dirty || _formSubmit)">
+        <p class="error">First name must contain 2 to 12 letters.</p>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="lastname" placeholder="Last name"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="!_signUpForm.controls.lastname.valid  && (_signUpForm.controls.lastname.dirty || _formSubmit)">
+        <p class="error">Last name must contain 2 to 12 letters.</p>
+      </ion-item>
+
+      <ion-list radio-group formControlName="gender">
+        <ion-list-header>
+          Gender
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-radio value="Female">
+            </ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-radio value="Male"></ion-radio>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-item *ngIf="!_signUpForm.controls.gender.valid  && (_signUpForm.controls.firstname.dirty || _formSubmit)">
+        <p class="error">Please select a gender.</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!_signUpForm.controls.password.valid  && (_signUpForm.controls.password.dirty || _formSubmit)">
+        <p class="error">Password must be 8 letters or more</p>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" formControlName="confirmPassword" placeholder="Confirm Password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!_signUpForm.controls.confirmPassword.valid  && (_signUpForm.controls.confirmPassword.dirty || _formSubmit)">
+        <p class="error">Passwords do not match.</p>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="success" full (tap)="createAccount()" icon-left>
+          <ion-icon name="logo-in" ></ion-icon>Create Account
+      </button>
+    </div>
+  </form>
+
+</ion-content>

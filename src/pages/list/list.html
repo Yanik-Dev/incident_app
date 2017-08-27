@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Posts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item-sliding *ngFor="let incident of incidentz">
+          <ion-item>
+            <ion-thumbnail item-start>
+              <ion-img [src]="incident.path" ></ion-img>
+              <ion-spinner></ion-spinner>
+            </ion-thumbnail>
+            <p>{{incident.date_taken }}</p>
+            <ion-avatar item-end >
+              <img src="./assets/icon/{{incident.icon}}.png" style="width: 24px; height: 24px">
+            </ion-avatar>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="danger" (tap)="delete(incident)">
+              <ion-icon name="close"></ion-icon>
+              Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-content>
+  <map #map></map>
+  
+</ion-content>
+<ion-footer color="dark">
+  <ion-toolbar center color="dark">
+    <ion-row>
+      <ion-col col-4>
+        <ion-buttons>
+        <button ion-button icon-only (tap)="openMenu()">
+          <ion-icon name="menu"></ion-icon>
+        </button> 
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-4>
+          <ion-buttons center text-center>
+            <button ion-button icon-only  (tap)="openPost()">
+              <ion-icon name="camera"></ion-icon>
+            </button> 
+          </ion-buttons>
+      </ion-col>
+      <ion-col col-4>
+        <ion-buttons end>
+        <button ion-button icon-only (tap)="findMyLocation()">
+          <ion-icon name="refresh"></ion-icon>
+        </button> 
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+    
+  </ion-toolbar>
+<ion-footer>
