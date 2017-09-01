@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController  } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { UserService } from '../../providers/user.service';
 import { User } from '../../models/user';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -19,8 +18,9 @@ export class LoginPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private _userService: UserService,
-              private _firebase: AngularFireDatabase,
+              public menu: MenuController,
               private _formBuilder: FormBuilder) {
+                this.menu.enable(false)
     this._userService.getUser().then((res)=>{
       if(res != null){
         this.navCtrl.push("MenuPage")

@@ -87,7 +87,7 @@ export class MenuPage {
 
   public logout(){
     this._userService.clearUser();
-    this.nav.pop()
+    this.nav.push("LoginPage")
   }
 
   public showSettings(){

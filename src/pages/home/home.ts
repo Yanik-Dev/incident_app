@@ -12,6 +12,7 @@ export class HomePage {
               public _modal: ModalController,
               public _menuCtrl: MenuController) {
             
+         this._menuCtrl.enable(true)
   }
 
   

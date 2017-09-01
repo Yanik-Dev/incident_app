@@ -70,7 +70,7 @@ export const firebaseConfig = {
     CameraService,
     Network,
     NetworkService
-  ]
+  ],
 })
 export class AppModule {}
 
